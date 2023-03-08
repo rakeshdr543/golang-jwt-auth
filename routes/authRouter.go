@@ -1,9 +1,11 @@
 package routes
 
-func routes() []string {
-	return []string{
-		"/",
-		"/auth",
-		"/user",
-	}
+import (
+	"github.com/gin-gonic/gin"
+	controller "github.com/rakeshdr543/golang-jwt-auth/controllers"
+)
+
+func AuthRoutes(incomingRoutes *gin.Engine) {
+	incomingRoutes.POST("users/signup", controller.Signup())
+	incomingRoutes.POST("users/login", controller.Login())
 }
